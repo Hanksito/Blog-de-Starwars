@@ -1,0 +1,21 @@
+img{
+    width: 16rem;
+    height: 12rem;
+    object-fit: cover;
+    padding: 5px;
+}
+#scrolltime {
+    background-color: grey;
+    overflow-x: scroll;
+    padding-bottom: 5px;
+}
+body{
+    background-color: grey;
+
+}
+#logo{
+    padding-left:20px ;
+   height: fit-content;
+   width: 80px;
+    
+}
