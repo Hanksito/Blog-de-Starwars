@@ -3,8 +3,8 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 
 import { Home } from "./views/home";
-import { Demo } from "./views/SingleData";
-
+import { SingleData } from "./views/SingleData";
+import { SinglePlanet } from "./views/SinglePlanet";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
@@ -25,8 +25,11 @@ const Layout = () => {
 						<Route exact path="/">
 							<Home />
 						</Route>
-						<Route exact path="/card/">
-							<Demo />
+						<Route exact path="/characters/:name">
+							<SingleData />
+						</Route>
+						<Route exact path="/planets/:name">
+							<SinglePlanet />
 						</Route>
 						
 						<Route>

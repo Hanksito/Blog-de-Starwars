@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 import "../../styles/demo.css";
 
-export const SingleData = () => {
+export const SinglePlanet = () => {
   const { store, actions } = useContext(Context);
   let aux = store.data;
 
@@ -13,13 +13,11 @@ export const SingleData = () => {
       <div className="container bg-white rounded">
         <div className="row">
           <div className="col">
-          
             <img
-              id="singleData"
-              
-              src="https://static.wikia.nocookie.net/65917e3f-4a4e-438c-aa88-3f249f2d7b44/scale-to-width/755"
+              id="singleData"npm 
+              className="figure-img img-fluid rounded"
+              src="https://t.ctcdn.com.br/c8n1O13ePRKgjee10j-mjPwSQ0Q=/610x343/smart/i302008.jpeg"
             />
-            
           </div>
           <div className="col">
             <h1 className="text-center pt-5 mt-5 ">{aux.name}</h1>
@@ -36,24 +34,24 @@ export const SingleData = () => {
         <hr style={{ color: "red" }} />
         <div className="row d-flex justify-content-center">
           <div className="col-2 text-center border">
-            <h1>height</h1>
-            <p className="fs-3">{aux.height}</p>
+            <h1>population</h1>
+            <p className="fs-3">{aux.population}</p>
           </div>
           <div className="col-2 text-center border">
-            <h1>hair_color</h1>
-            <p className="fs-3">{aux.hair_color}</p>
+            <h1>climate</h1>
+            <p className="fs-3">{aux.climate}</p>
           </div>
           <div className="col-2 text-center border">
-            <h1>eye_color</h1>
-            <p className="fs-3">{aux.eye_color}</p>
+            <h1>terrain</h1>
+            <p className="fs-3">{aux.terrain}</p>
           </div>
           <div className="col-2 text-center border">
-            <h1>skin_color</h1>
-            <p className="fs-3">{aux.skin_color}</p>
+            <h1>diameter</h1>
+            <p className="fs-3">{aux.diameter}</p>
           </div>
           <div className="col-2 text-center border">
-            <h1>gender</h1>
-            <p className="fs-3">{aux.gender}</p>
+            <h1>rotation</h1>
+            <p className="fs-3">{aux.rotation_period}</p>
           </div>
         </div>
         <br />
