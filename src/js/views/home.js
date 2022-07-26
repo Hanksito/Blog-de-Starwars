@@ -14,19 +14,20 @@ export const Home = () => {
     "https://www.nosolobits.com/imagenes/guia/coruscant_1843754588.jpg";
 
   return (
+    
     <div  className="container-fluid ">
-      <h1 className="text-center font-weight-bold border border-dark my-2">
-        People
+      <h1 className="text-start text-danger font-weight-bold my-1">
+        Characters
       </h1>
-      <div id={"scrolltime"} className="row flex-nowrap ">
+      <div id={"scrolltime"} className="row flex-nowrap my-2 py-3">
         {people.map((element) => {
           return <Card  name={element.name} id={element.uid} url={element.url} type={"characters"}/>;
         })}
       </div>
-      <h1 className="text-center font-weight-bold border border-dark my-2">
+      <h1 className="text-start text-danger font-weight-bold my-1">
         Planets
       </h1>
-      <div id={"scrolltime"} className="row flex-nowrap ">
+      <div id={"scrolltime"} className="row flex-nowrap my-2 py-3">
         {planetas.map((element) => {
           return <Card  name={element.name} id={element.uid} url={element.url} type={"planets"}/>;
         })}

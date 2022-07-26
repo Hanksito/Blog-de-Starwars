@@ -2,12 +2,8 @@ import React, { useContext } from "react";
 import {Link} from "react-router-dom"
 import { Context } from "../store/appContext";
 
-
 export const Card = ({name, id ,url,type}) => {
   const { store, actions } = useContext(Context);
-  
-
- 
   return (
     <div key={id} className="col-2 rounded">
       <div className="card" style={{ width: "16rem" }}>
@@ -16,10 +12,10 @@ export const Card = ({name, id ,url,type}) => {
           <h5 className="card-title text-center  font-weight-bold border border-dark">{name}</h5>
         </div>
         <div className="card-body">
-          <Link to={`/${type}/${name}/${id}`}onClick={()=>actions.getid(url)} >
-          <button  type="button"  className="btn btn-primary btn-sm">
-            Saber mas
-          </button>
+          <Link to={`/${type}/${name}/${id}`}>
+            <button onClick={()=>actions.getid(url)}  type="button"  className="btn btn-outline-primary btn-sm">
+              Saber mas
+            </button>
           </Link>
           <button  type="button" onClick={()=>{actions.addFavorites(name)}} className="btn btn-outline-dark btn-sm float-end">
             <svg

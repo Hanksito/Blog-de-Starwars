@@ -7,8 +7,9 @@ import { Context } from "../store/appContext";
 export const Navbar = () => {
   const { store, actions } = useContext(Context);
   let fav = store.favorites;
+  let vacio = '(empty)';
   return (
-    <nav className="navbar navbar-dark bg-dark mb-3 d-flex justify-content-around">
+    <nav className="navbar navbar-dark bg-dark mb-3 d-flex justify-content-between pe-5">
       <Link to="/">
         <span className="navbar-brand mb-0 h1 px-5">
           <img
@@ -18,25 +19,21 @@ export const Navbar = () => {
         </span>
       </Link>
 
-      <div class="dropdown">
-        <button class="dropbtn">Favorites</button>
-        <div class="dropdown-content pe-5">
-          <ul className="list-group">
-            {fav.map((element, index) => {
-              return (
-                <li className="row justify-content-center" key={index}>
-                  {element}
-                  <button
-                    type="button"
-                    className="btn-close me-2"
-                    aria-label="Close"
-                    onClick={() => actions.delFavorites({ element })}
-                  ></button>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
+      <div onClick={(e)=>e.stopPropagation()} className="dropdown ml-auto">
+					<button className="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+						Favorites <span className="bg-secondary">{fav.length}</span>
+					</button>
+					<ul className="dropdown-menu dropdown-menu-end">
+						{(fav.length==0)?
+							<li><span className="dropdown-item" href="#">{vacio}</span></li>
+							: fav.map((item,indice)=>
+							<li key={indice} className="d-flex justify-content-between pe-3">
+								<Link to={`/single favs/${indice}`}>
+									<span onClick={()=>actions.resetSingles()} className="dropdown-item text-primary" href="#">{item.name}</span>
+								</Link>
+								<span className="text-primary" onClick={()=>actions.delFavorites({ item })} ><FaRegTrashAlt /></span>
+							</li>)}
+					</ul>
       </div>
     </nav>
   );
