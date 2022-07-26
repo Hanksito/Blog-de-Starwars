@@ -7,7 +7,9 @@ import { Card } from "../component/cards";
 export const Home = () => {
   const { store, actions } = useContext(Context);
   const people = store.people;
+  console.log(people);
   const planetas = store.planetas;
+  console.log(planetas);
   let img =
     "https://upload.wikimedia.org/wikipedia/commons/0/09/Luke_Skywalker_con_traje_de_piloto.jpg";
   let img2 =
@@ -15,13 +17,13 @@ export const Home = () => {
 
   return (
     
-    <div  className="container-fluid ">
+    <div className="container-fluid ">
       <h1 className="text-start text-danger font-weight-bold my-1">
         Characters
       </h1>
       <div id={"scrolltime"} className="row flex-nowrap my-2 py-3">
         {people.map((element) => {
-          return <Card  name={element.name} id={element.uid} url={element.url} type={"characters"}/>;
+          return <Card  name={element.name} id={element.uid} url={element.url} type={"characters"} addfavorites={()=> actions.updatePeopleFavs(element)}/>;
         })}
       </div>
       <h1 className="text-start text-danger font-weight-bold my-1">
@@ -29,7 +31,7 @@ export const Home = () => {
       </h1>
       <div id={"scrolltime"} className="row flex-nowrap my-2 py-3">
         {planetas.map((element) => {
-          return <Card  name={element.name} id={element.uid} url={element.url} type={"planets"}/>;
+          return <Card  name={element.name} id={element.uid} url={element.url} type={"planets"} addfavorites={()=> actions.updatePlanetFavs(element)} />;
         })}
       </div>
     </div>

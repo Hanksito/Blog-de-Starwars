@@ -15,9 +15,34 @@ const getState = ({ getStore, getActions, setStore }) => {
         
         setStore({favorites:arr})
       },
-      addFavorites:(name)=>{
-       setStore({ favorites: [...getStore().favorites, name]})
-      },
+
+      resetSingles: ()=>{
+				const store = getStore();
+				let aux6 = [];
+				setStore({ planetas : aux6});
+				setStore({ people : aux6});
+			},
+
+      updatePeopleFavs : (item) => {
+				const store = getStore();
+				let temp = item;
+				temp.src = "people";
+				if (store.favorites.indexOf(temp)==-1) {
+					setStore({ favorites : [...store.favorites, temp]});
+					console.log(store);
+				};
+			},
+
+      updatePlanetFavs : (item) => {
+				const store = getStore();
+				let temp = item;
+				temp.src = "planetas";
+				if (store.favorites.indexOf(temp)==-1) {
+					setStore({ favorites : [...store.favorites, temp]});
+					console.log(store);
+				};
+			},
+
       // Use getActions to call a function within a fuction
       getid: (url) => {
         fetch(url)
@@ -36,6 +61,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
 
       loadSomeData: () => {
+
         /**
           fetch().then().then(data => setStore({ "foo": data.bar }))
         */

@@ -2,22 +2,19 @@ import React, { useContext } from "react";
 import {Link} from "react-router-dom"
 import { Context } from "../store/appContext";
 
-export const Card = ({name, id ,url,type}) => {
+export const Card = (props) => {
   const { store, actions } = useContext(Context);
   return (
-    <div key={id} className="col-2 rounded">
-      <div className="card" style={{ width: "16rem" }}>
-        <img src={`https://starwars-visualguide.com/assets/img/${type}/${id}.jpg`} className="card-img-top" alt="..." />
-        <div className="card-body">
-          <h5 className="card-title text-center  font-weight-bold border border-dark">{name}</h5>
-        </div>
-        <div className="card-body">
-          <Link to={`/${type}/${name}/${id}`}>
-            <button onClick={()=>actions.getid(url)}  type="button"  className="btn btn-outline-primary btn-sm">
+      <div key={props.id} className="card m-3 wrap col-3" style={{width: "19rem"}}>
+          <img src={`https://starwars-visualguide.com/assets/img/${props.type}/${props.id}.jpg`} className="card-img-top" alt="..." />
+          <div className="card-body text-start">
+              <h5 className="card-title">{props.name}</h5>
+          <Link to={`/${props.type}/${props.name}/${props.id}`}>
+            <button onClick={()=>actions.getid(props.url)} type="button" className="btn btn-outline-primary btn-sm">
               Saber mas
             </button>
           </Link>
-          <button  type="button" onClick={()=>{actions.addFavorites(name)}} className="btn btn-outline-dark btn-sm float-end">
+          <button type="button" onClick={props.addfavorites} className="btn btn-outline-dark btn-sm float-end">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="25"
@@ -31,6 +28,5 @@ export const Card = ({name, id ,url,type}) => {
           </button>
         </div>
       </div>
-    </div>
   );
 };
