@@ -1,12 +1,14 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 import { Context } from "../store/appContext";
 import "../../styles/demo.css";
 
 export const SingleData = () => {
   const { store, actions } = useContext(Context);
-  let aux = store.data;
+  const aux = store.data;
+
+  let params = useParams() 
 
   return (
     <div className="container-fluid">
@@ -17,7 +19,7 @@ export const SingleData = () => {
             <img
               id="singleData"
               
-              src="https://static.wikia.nocookie.net/65917e3f-4a4e-438c-aa88-3f249f2d7b44/scale-to-width/755"
+              src={`https://starwars-visualguide.com/assets/img/characters/${params.theid}.jpg`}
             />
             
           </div>

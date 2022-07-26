@@ -7,7 +7,7 @@ export const Card = ({name, id ,url,type}) => {
   const { store, actions } = useContext(Context);
   
 
-  https://starwars-visualguide.com/assets/img/planets/3.jpg
+ 
   return (
     <div key={id} className="col-2 rounded">
       <div className="card" style={{ width: "16rem" }}>
@@ -16,7 +16,7 @@ export const Card = ({name, id ,url,type}) => {
           <h5 className="card-title text-center  font-weight-bold border border-dark">{name}</h5>
         </div>
         <div className="card-body">
-          <Link to={`/${type}/${name}`}onClick={()=>actions.getid(url)} >
+          <Link to={`/${type}/${name}/${id}`}onClick={()=>actions.getid(url)} >
           <button  type="button"  className="btn btn-primary btn-sm">
             Saber mas
           </button>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link ,useParams} from "react-router-dom";
 
 import { Context } from "../store/appContext";
 import "../../styles/demo.css";
@@ -7,6 +7,7 @@ import "../../styles/demo.css";
 export const SinglePlanet = () => {
   const { store, actions } = useContext(Context);
   let aux = store.data;
+  let params = useParams()
 
   return (
     <div className="container-fluid">
@@ -16,7 +17,7 @@ export const SinglePlanet = () => {
             <img
               id="singleData"npm 
               className="figure-img img-fluid rounded"
-              src="https://t.ctcdn.com.br/c8n1O13ePRKgjee10j-mjPwSQ0Q=/610x343/smart/i302008.jpeg"
+              src={`https://starwars-visualguide.com/assets/img/planets/${params.theid}.jpg`}
             />
           </div>
           <div className="col">
