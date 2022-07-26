@@ -26,10 +26,9 @@ export const Navbar = () => {
 					<ul className="dropdown-menu dropdown-menu-end">
 						{(store.favorites.length==0)?
 							<li><span className="dropdown-item" href="#">{vacio}</span></li>
-
-							: store.favorites.map((item, index)=>
-							<li key={item.name + index} className="d-flex justify-content-between pe-3">
-								<Link to={`/single favs/${index}`}>
+							: store.favorites.map((item)=>
+							<li key={item.name + item.uid} className="d-flex justify-content-between pe-3">
+								<Link to={`/${item.src}/${item.name}/${item.uid}`}>
 									<span onClick={()=>actions.resetSingles()} className="dropdown-item text-primary" href="#">{item.name}</span>
 								</Link>
 								<span className="text-primary" onClick={()=>actions.deleteFav(item)} ><FaRegTrashAlt /></span>

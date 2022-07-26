@@ -24,7 +24,7 @@ export const SingleData = () => {
             
           </div>
           <div className="col">
-            <h1 className="text-center pt-5 mt-5 ">{aux.name}</h1>
+            <h1 className="text-center pt-5 mt-5 ">{params.name}</h1>
             <div>
               <p className="fs-4">
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit.
