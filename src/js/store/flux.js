@@ -9,12 +9,19 @@ const getState = ({ getStore, getActions, setStore }) => {
       favorites: [],
     },
     actions: {
-      delFavorites:(item)=>{
-       console.log(typeof(item.element),"item")
-        const arr = getStore().favorites.filter((element) =>  element !== item.element)
+
+      deleteFav: (item) => {
+				const store = getStore();
+				let aux5 = store.favorites.filter((elem)=>elem!==item);
+				setStore({ favorites : aux5});
+			},
+
+      // delFavorites:(item)=>{
+      //  console.log(typeof(item.element),"item")
+      //   const arr = getStore().favorites.filter((element) =>  element !== item.element)
         
-        setStore({favorites:arr})
-      },
+      //   setStore({favorites:arr})
+      // },
 
       resetSingles: ()=>{
 				const store = getStore();
