@@ -60,9 +60,9 @@ export const SingleData = () => {
         </div>
         <br />
 		<div className="d-grid gap-2">
-        <Link className="d-grid gap-2 py-1" to="/">
+        {/* <Link className="d-grid gap-2 py-1" to="/">
           <button className="btn btn-primary">Back home</button>
-        </Link>
+        </Link> */}
       </div>
 	  </div>
     </div>

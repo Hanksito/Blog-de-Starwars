@@ -21,7 +21,7 @@ export const SinglePlanet = () => {
             />
           </div>
           <div className="col">
-            <h1 className="text-center pt-5 mt-5 ">{aux.name}</h1>
+            <h1 className="text-center pt-5 mt-5 ">{params.name}</h1>
             <div>
               <p className="fs-4">
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit.
@@ -57,9 +57,9 @@ export const SinglePlanet = () => {
         </div>
         <br />
 		<div className="d-grid gap-2">
-        <Link className="d-grid gap-2 py-1" to="/">
+        {/* <Link className="d-grid gap-2 py-1" to="/">
           <button className="btn btn-primary">Back home</button>
-        </Link>
+        </Link> */}
       </div>
 	  </div>
     </div>
