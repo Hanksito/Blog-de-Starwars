@@ -13,7 +13,7 @@ export const SinglePlanet = () => {
     <div className="container-fluid">
       <div className="container bg-white rounded">
         <div className="row">
-          <div className="col">
+          <div className="col text-center">
             <img
               id="singleData"npm 
               className="figure-img img-fluid rounded"
@@ -22,7 +22,7 @@ export const SinglePlanet = () => {
           </div>
           <div className="col">
             <h1 className="text-center pt-5 mt-5 ">{params.name}</h1>
-            <div>
+            <div className="pt-5">
               <p className="fs-4">
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                 Temporibus fugiat odio voluptate eum iusto repudiandae provident

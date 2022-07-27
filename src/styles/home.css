@@ -1,9 +1,9 @@
-img {
+/* img {
   width: 16rem;
   height: 12rem;
   object-fit: cover;
   padding: 5px;
-}
+} */
 #scrolltime {
   background-color: white;
   overflow-x: scroll;

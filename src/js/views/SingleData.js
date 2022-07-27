@@ -14,18 +14,19 @@ export const SingleData = () => {
     <div className="container-fluid">
       <div className="container bg-white rounded">
         <div className="row">
-          <div className="col">
+          <div className="col text-center">
           
             <img
+              className=""
               id="singleData"
-              
+              style={{boxSizing: "cover", maxHeight: "700px", width: "auto"}}
               src={`https://starwars-visualguide.com/assets/img/characters/${params.theid}.jpg`}
             />
             
           </div>
           <div className="col">
             <h1 className="text-center pt-5 mt-5 ">{params.name}</h1>
-            <div>
+            <div className="pt-5">
               <p className="fs-4">
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                 Temporibus fugiat odio voluptate eum iusto repudiandae provident
