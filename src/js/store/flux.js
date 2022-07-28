@@ -7,6 +7,8 @@ const getState = ({ getStore, getActions, setStore }) => {
       people: [],
       data: [],
       favorites: [],
+      
+
     },
     actions: {
 
@@ -16,12 +18,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({ favorites : aux5});
 			},
 
-      // delFavorites:(item)=>{
-      //  console.log(typeof(item.element),"item")
-      //   const arr = getStore().favorites.filter((element) =>  element !== item.element)
-        
-      //   setStore({favorites:arr})
-      // },
+    
 
       resetSingles: ()=>{
 				const store = getStore();
@@ -50,6 +47,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				};
 			},
 
+      
       // Use getActions to call a function within a fuction
       getid: (url) => {
         fetch(url)

@@ -1,12 +1,40 @@
-import React, { useContext } from "react";
+import React, { useContext,useEffect,useState } from "react";
 import {Link} from "react-router-dom"
 import { Context } from "../store/appContext";
 
 export const Card = (props) => {
   const { store, actions } = useContext(Context);
+  const {img,setImg} = useState("https://starwars-visualguide.com/assets/img/placeholder.jpg")
+  let i = "https://starwars-visualguide.com/assets/img/placeholder.jpg"
+
+  useEffect(() => {
+			
+   getImg()
+  }, []);
+
+  const getImg = () => {
+    fetch(`https://starwars-visualguide.com/assets/img/${props.type}/${props.id}.jpg`)
+    .then((res) =>{ 
+      if(res.ok){
+        return res.blob()
+      }}).then((imgBlob)=>{
+       
+        const imgUrl = URL.createObjectURL(imgBlob)
+        i = imgUrl
+        setImg(imgUrl.slice(5,imgUrl.length))
+
+        
+        
+      })
+  }
+
+
+
+
+  
   return (
       <div key={props.id} className="card m-3 wrap col-3" style={{width: "19rem"}}>
-          <img src={`https://starwars-visualguide.com/assets/img/${props.type}/${props.id}.jpg`} className="card-img-top" alt="..." />
+          <img src={i} className="card-img-top" alt="..." />
           <div className="card-body text-start">
               <h5 className="card-title">{props.name}</h5>
           <Link to={`/${props.type}/${props.name}/${props.id}`}>
