@@ -1,12 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
+import placeholderImg from "../../img/placeholder.jpg";
 
 export const Card = (props) => {
   const { store, actions } = useContext(Context);
-  const [img, setImg] = useState(
-    "https://starwars-visualguide.com/assets/img/placeholder.jpg"
-  );
+  const [img, setImg] = useState(placeholderImg);
 
   useEffect(() => {
     getImg();
