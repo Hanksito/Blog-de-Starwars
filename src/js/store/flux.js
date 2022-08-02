@@ -12,7 +12,20 @@ const getState = ({ getStore, getActions, setStore }) => {
     },
     actions: {
 
-      // existeFav: (item) => {};
+      buscarPeopleFav: (item) => {
+        const store = getStore();
+        return (store.favoritePeople.indexOf(item)>=0)
+      },
+
+      buscarPlanetsFav: (item) => {
+        const store = getStore();
+        return (store.favoritePlanets.indexOf(item)>=0)
+      },
+
+      buscarPlanetsFav2: (item) => {
+        const store = getStore();
+        return false
+      },
 
       deletePeopleFav: (item) => {
 				const store = getStore();

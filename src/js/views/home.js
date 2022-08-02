@@ -29,6 +29,7 @@ export const Home = () => {
               url={element.url}
               type={"characters"}
               addfavorites={() => actions.updatePeopleFavs(element)}
+              estiloBoton={actions.buscarPeopleFav(element)}
             />
           );
         })}
@@ -43,6 +44,7 @@ export const Home = () => {
               url={element.url}
               type={"planets"}
               addfavorites={() => actions.updatePlanetFavs(element)}
+              estiloBoton={actions.buscarPlanetsFav(element)}
             />
           );
         })}
