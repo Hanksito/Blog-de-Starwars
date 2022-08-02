@@ -15,7 +15,6 @@ export const Navbar = () => {
           <img
             id="logo"
             src="https://pngimg.com/uploads/star_wars_logo/star_wars_logo_PNG28.png"
-            onClick={()=>actions.loadSomeData()}
           />
         </span>
       </Link>

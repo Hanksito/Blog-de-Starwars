@@ -18,13 +18,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({ favorites : aux5});
 			},
 
-    
 
       resetSingles: ()=>{
 				const store = getStore();
 				let aux6 = [];
-				setStore({ planetas : aux6});
-				setStore({ people : aux6});
+				setStore({ data : aux6});
 			},
 
       updatePeopleFavs : (item) => {
