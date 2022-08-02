@@ -1,12 +1,26 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link ,useParams} from "react-router-dom";
-
+import placeholderImg from "../../img/placeholder.jpg";
 import { Context } from "../store/appContext";
 
 export const SinglePlanet = () => {
   const { store, actions } = useContext(Context);
   let aux = store.data;
   let params = useParams()
+  const [img, setImg] = useState(placeholderImg);
+
+  useEffect(() => {
+    getImg();
+  }, []);
+
+  const getImg = () => {
+    let img = `https://starwars-visualguide.com/assets/img/planets/${params.theid}.jpg`;
+    fetch(img).then((res) => {
+      if (res.ok) {
+        setImg(img);
+      }
+    });
+  };
 
   return (
     <div className="container-fluid">
@@ -16,7 +30,7 @@ export const SinglePlanet = () => {
             <img
               id="singleData"npm 
               className="figure-img img-fluid rounded"
-              src={`https://starwars-visualguide.com/assets/img/planets/${params.theid}.jpg`}
+              src={img}
             />
           </div>
           <div className="col">

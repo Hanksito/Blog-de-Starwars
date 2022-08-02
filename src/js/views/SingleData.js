@@ -1,13 +1,26 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link, useParams } from "react-router-dom";
-
+import placeholderImg from "../../img/placeholder.jpg";
 import { Context } from "../store/appContext";
 
 export const SingleData = () => {
   const { store, actions } = useContext(Context);
   const aux = store.data;
-
+  const [img, setImg] = useState(placeholderImg);
   let params = useParams() 
+  useEffect(() => {
+    getImg();
+  }, []);
+
+
+  const getImg = () => {
+    let img = `https://starwars-visualguide.com/assets/img/characters/${params.theid}.jpg`;
+    fetch(img).then((res) => {
+      if (res.ok) {
+        setImg(img);
+      }
+    });
+  };
 
   return (
     <div className="container-fluid">
@@ -19,7 +32,7 @@ export const SingleData = () => {
               className=""
               id="singleData"
               style={{boxSizing: "cover", maxHeight: "700px", width: "auto"}}
-              src={`https://starwars-visualguide.com/assets/img/characters/${params.theid}.jpg`}
+              src={img}
             />
             
           </div>
