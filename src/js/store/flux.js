@@ -6,18 +6,25 @@ const getState = ({ getStore, getActions, setStore }) => {
       planetas: [],
       people: [],
       data: [],
-      favorites: [],
-      
+      favoritePeople: [],
+      favoritePlanets: [],
 
     },
     actions: {
 
-      deleteFav: (item) => {
+      // existeFav: (item) => {};
+
+      deletePeopleFav: (item) => {
 				const store = getStore();
-				let aux5 = store.favorites.filter((elem)=>elem!==item);
-				setStore({ favorites : aux5});
+				let aux5 = store.favoritePeople.filter((elem)=>elem!==item);
+				setStore({ favoritePeople : aux5});
 			},
 
+      deletePlanetsFav: (item) => {
+				const store = getStore();
+				let aux5 = store.favoritePlanets.filter((elem)=>elem!==item);
+				setStore({ favoritePlanets : aux5});
+			},
 
       resetSingles: ()=>{
 				const store = getStore();
@@ -27,20 +34,16 @@ const getState = ({ getStore, getActions, setStore }) => {
 
       updatePeopleFavs : (item) => {
 				const store = getStore();
-				let temp = item;
-				temp.src = "people";
-				if (store.favorites.indexOf(temp)==-1) {
-					setStore({ favorites : [...store.favorites, temp]});
+				if (store.favoritePeople.indexOf(item)==-1) {
+					setStore({ favoritePeople : [...store.favoritePeople, item]});
 					console.log(store);
 				};
 			},
 
       updatePlanetFavs : (item) => {
 				const store = getStore();
-				let temp = item;
-				temp.src = "planetas";
-				if (store.favorites.indexOf(temp)==-1) {
-					setStore({ favorites : [...store.favorites, temp]});
+				if (store.favoritePlanets.indexOf(item)==-1) {
+					setStore({ favoritePlanets : [...store.favoritePlanets, item]});
 					console.log(store);
 				};
 			},

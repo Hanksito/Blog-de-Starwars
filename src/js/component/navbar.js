@@ -3,6 +3,7 @@ import React, { useContext } from "react";
 import { FaRegTrashAlt } from 'react-icons/fa';
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
+import "../../styles/navbar.css";
 
 export const Navbar = () => {
   const { store, actions } = useContext(Context);
@@ -21,23 +22,40 @@ export const Navbar = () => {
 
       <div onClick={(e)=>e.stopPropagation()} className="dropdown ml-auto">
 					<button className="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-						Favorites <span className="bg-secondary">{store.favorites.length}</span>
+						Favorites <span className="bg-secondary">{store.favoritePeople.length + store.favoritePlanets.length}</span>
 					</button>
 					<ul className="dropdown-menu dropdown-menu-end">
-						{(store.favorites.length==0)?
+
+						{(store.favoritePeople.length+store.favoritePlanets.length==0)?
 							<li><span className="dropdown-item" href="#">{vacio}</span></li>
-							: store.favorites.map((item)=>
+							: store.favoritePeople.map((item)=>
 							<li key={item.name + item.uid} className="d-flex justify-content-between pe-3">
-								<Link to={`/${item.src}/${item.name}/${item.uid}`}>
+								<Link to={`/people/${item.name}/${item.uid}`}>
 									<span onClick={()=>{
                       actions.resetSingles();
                       actions.getid(item.url);
                       }
                     }
-                    className="dropdown-item text-primary" href="#">{item.name}</span>
+                    className="dropdown-item text-primary" href="#" >{item.name}</span>
 								</Link>
-								<span className="text-primary" onClick={()=>actions.deleteFav(item)} ><FaRegTrashAlt /></span>
+								<span className="text-primary" onClick={()=>actions.deletePeopleFav(item)} ><FaRegTrashAlt /></span>
 							</li>)}
+
+              {(store.favoritePlanets.length!==0)?
+							store.favoritePlanets.map((item)=>
+							<li key={item.name + item.uid} className="d-flex justify-content-between pe-3">
+								<Link to={`/planets/${item.name}/${item.uid}`}>
+									<span onClick={()=>{
+                      actions.resetSingles();
+                      actions.getid(item.url);
+                      }
+                    }
+                    className="dropdown-item text-primary" href="#" >{item.name}</span>
+								</Link>
+								<span className="text-primary" onClick={()=>actions.deletePlanetsFav(item)} ><FaRegTrashAlt /></span>
+							</li>)
+              : ''}
+
 					</ul>
       </div>
     </nav>
